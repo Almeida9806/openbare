@@ -14,7 +14,7 @@
     "login": "wrangler login",
     "whoami": "wrangler whoami",
     "lint": "eslint src/",
-    "test": "echo \"No tests configured\" && exit 0"
+    "test": "node --test 'test/**/*.test.js'"
   },
   "keywords": [
     "bare-server",

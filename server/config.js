@@ -79,11 +79,52 @@ export const config = {
 };
 
 /**
- * Validate configuration and warn about potential issues
+ * Configuration validation errors
  */
-export function validateConfig(logger) {
+export class ConfigError extends Error {
+  constructor(message, field) {
+    super(message);
+    this.name = 'ConfigError';
+    this.field = field;
+  }
+}
+
+/**
+ * Validate configuration and warn about potential issues
+ * @param {object} logger - Pino logger instance (optional)
+ * @param {boolean} strict - Throw on critical errors (default: true in production)
+ * @returns {boolean} True if valid, false if has warnings
+ */
+export function validateConfig(logger = console, strict = config.isProd) {
   const warnings = [];
+  const errors = [];
   
+  // Validate port
+  if (isNaN(config.port) || config.port < 1 || config.port > 65535) {
+    errors.push({ field: 'PORT', message: 'PORT must be a number between 1 and 65535' });
+  }
+
+  // Validate rate limit
+  if (isNaN(config.rateLimit.windowMs) || config.rateLimit.windowMs < 1000) {
+    errors.push({ field: 'RATE_LIMIT_WINDOW_MS', message: 'Rate limit window must be at least 1000ms' });
+  }
+  
+  if (isNaN(config.rateLimit.max) || config.rateLimit.max < 1) {
+    errors.push({ field: 'RATE_LIMIT_MAX', message: 'Rate limit max must be at least 1' });
+  }
+
+  // Production-only validations
+  if (config.isProd) {
+    if (!config.nodeUrl) {
+      errors.push({ field: 'NODE_URL', message: 'NODE_URL is required in production' });
+    }
+    
+    if (!config.region || config.region === 'unknown') {
+      warnings.push('REGION not set - node discovery may not work optimally');
+    }
+  }
+  
+  // Warnings (non-fatal)
   if (!config.region || config.region === 'unknown') {
     warnings.push('REGION not set - node discovery may not work optimally');
   }
@@ -99,10 +140,23 @@ export function validateConfig(logger) {
   if (config.rateLimit.max > 1000) {
     warnings.push('Rate limit is very high (>1000/min) - consider lowering for production');
   }
-  
+
+  // Log warnings
   warnings.forEach(w => logger.warn(w));
   
-  return warnings.length === 0;
+  // Handle errors
+  if (errors.length > 0) {
+    errors.forEach(e => logger.error(`Config error [${e.field}]: ${e.message}`));
+    
+    if (strict) {
+      throw new ConfigError(
+        `Configuration invalid: ${errors.map(e => e.message).join('; ')}`,
+        errors.map(e => e.field)
+      );
+    }
+  }
+  
+  return errors.length === 0;
 }
 
 export default config;

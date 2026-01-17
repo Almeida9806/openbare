@@ -23,7 +23,7 @@
     "index.d.ts"
   ],
   "scripts": {
-    "test": "node --test",
+    "test": "node --test 'test/**/*.test.js'",
     "lint": "eslint src/",
     "typecheck": "tsc --noEmit"
   },
