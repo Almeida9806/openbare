@@ -14,7 +14,13 @@ A multi-server proxy client for OpenBare with automatic failover, load balancing
 ## Installation
 
 ```bash
-npm install @openbare/client
+# Install from GitHub (recommended for now)
+npm install github:nirholas/openbare#main
+
+# Or clone and link locally
+git clone https://github.com/nirholas/openbare.git
+cd openbare/client
+npm link
 ```
 
 ## Quick Start
