@@ -18,7 +18,7 @@
 
 ## ✨ Features
 
-- 🚀 **Instant Setup** - One-click deploy to Vercel, Railway, or Cloudflare
+- 👀 **Instant Setup** - One-click deploy to Vercel, Railway, or Cloudflare
 - 🌍 **Decentralized** - Community-run nodes across the globe
 - ⚡ **Edge Performance** - Cloudflare Workers for <50ms latency worldwide
 - 🔄 **Automatic Failover** - Client seamlessly switches between nodes
