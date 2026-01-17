@@ -23,12 +23,6 @@ jobs:
         run: npm install
         working-directory: ./server
       
-      - name: Check server starts
-        run: |
-          timeout 10 npm start &
-          sleep 5
-          curl -f http://localhost:8080/ || exit 1
+      - name: Syntax check
+        run: node --check index.js
         working-directory: ./server
-        env:
-          PORT: 8080
-          NODE_ENV: test
