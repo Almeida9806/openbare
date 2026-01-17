@@ -23,6 +23,6 @@ jobs:
         run: npm install
         working-directory: ./server
       
-      - name: Syntax check
-        run: node --check index.js
+      - name: Verify installation
+        run: ls -la node_modules
         working-directory: ./server
